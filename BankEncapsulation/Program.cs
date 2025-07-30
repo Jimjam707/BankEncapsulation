@@ -21,12 +21,12 @@
                         do
                         {
                             Console.Write("How much would you like to deposit? $");
-                            if (!double.TryParse(Console.ReadLine(), out amount))
+                            if (double.TryParse(Console.ReadLine(), out amount))
                             {
-                                Console.WriteLine("Invalid amount entered. Please enter a valid number.");
-                                continue;
+                                break;
                             }
-                        } while (!double.TryParse(Console.ReadLine(), out amount));
+                            Console.WriteLine("Invalid amount entered. Please enter a valid number.");
+                        } while (true);
                         
                         account.Deposit(amount);
                         Console.WriteLine($"Current balance is: ${account.GetBalance()}");
